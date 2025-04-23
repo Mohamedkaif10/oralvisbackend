@@ -1,10 +1,10 @@
-# 🧠 Oralvis Backend
+# Oralvis Backend
 
 This is the backend repository for the **Oralvis Assignment**. It handles server-side operations and interacts with MongoDB.
 
 ---
 
-## 📁 Clone the Repository
+##  Clone the Repository
 
 ```bash
 git clone https://github.com/Mohamedkaif10/oralvisbackend.git
