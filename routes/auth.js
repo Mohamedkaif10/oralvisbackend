@@ -1,21 +1,20 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-
 const router = express.Router();
+require("dotenv").config();
 
 const authMiddleware = (req, res, next) => {
   const token = req.header("Authorization")?.replace("Bearer ", "");
   if (!token) return res.status(401).json({ message: "No token provided" });
   try {
-    const decoded = jwt.verify(token, "your_jwt_secret");
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
   } catch (error) {
     res.status(401).json({ message: "Invalid token" });
   }
 };
-
 router.post("/register", async (req, res) => {
   const { email, password, role } = req.body;
   try {
